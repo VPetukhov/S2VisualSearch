@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vega@5.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.2"></script> -->
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="content">
+            <h1>Search</h1>
+            <div class="columns">
+                <!-- <div class="control column is-7">
+                    <textarea id="search-queries" class="textarea" placeholder="Search queries" rows="1"></textarea>
+                </div> -->
+                <input id="search-queries" class="column input is-7" placeholder="Search query">
+                <input class="input column" type="number" placeholder="#results" value="100">
+                <button id="search-button" class="button column">Search</button>
+            </div>
+            <div class="is-fullwidth" style="width: 100%;">
+                <input type="range" min="2" max="50" value="10" class="slider is-fullwidth" id="n-clust-slider" style="width: 90%;" oninput="this.nextElementSibling.value = this.value">
+                <output>10</output>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <div class="columns">
+            <div id="out-plot" class="column is-8"></div>
+            <div id="out-text" class="column"></div>
+        </div>
+    </div>
+</main>
+<script type="module" type="text/javascript">
+import analyseTexts, { updateNClusters } from './index.js';
+let pyodideReadyPromise = loadPyodide();
+console.log(pyodideReadyPromise)
+
+let nClusters = document.getElementById('n-clust-slider').value
+
+analyseTexts("NLP", {plotDivId: 'out-plot', textDivId: 'out-text', pyodideReadyPromise: pyodideReadyPromise, nClusters: nClusters})
+
+function processSlider() {
+    const nc = document.getElementById('n-clust-slider').value
+    console.log(nc)
+    updateNClusters({plotDivId: 'out-plot', textDivId: 'out-text', pyodideReadyPromise: pyodideReadyPromise, nClusters: nc})
+}
+
+document.querySelector('#n-clust-slider').addEventListener('input', () => processSlider())
+
+// document.querySelector('#search-button').addEventListener('click',
+//     () => analyseTexts(document.getElementById('search-queries').value, 'out-plot', 'out-text')
+// )
+</script>
+</body>
+</html>
