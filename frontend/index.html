@@ -21,7 +21,7 @@
                     <textarea id="search-queries" class="textarea" placeholder="Search queries" rows="1"></textarea>
                 </div> -->
                 <input id="search-queries" class="column input is-7" placeholder="Search query">
-                <input class="input column" type="number" placeholder="#results" value="100">
+                <input id="n-results" class="input column" type="number" placeholder="#results" value="100">
                 <button id="search-button" class="button column">Search</button>
             </div>
             <div class="is-fullwidth" style="width: 100%;">
@@ -40,12 +40,12 @@
     </div>
 </main>
 <script type="module" type="text/javascript">
-import analyseTexts, { updateNClusters } from './index.js';
-let pyodideReadyPromise = loadPyodide();
-console.log(pyodideReadyPromise)
+import analyseTexts, { updateNClusters, initializePython} from './index.js';
+// let pyodideReadyPromise = loadPyodide().then(initializePython);
+let pyodideReadyPromise = null;
+// console.log(pyodideReadyPromise)
 
 let nClusters = document.getElementById('n-clust-slider').value
-
 analyseTexts("NLP", {plotDivId: 'out-plot', textDivId: 'out-text', pyodideReadyPromise: pyodideReadyPromise, nClusters: nClusters})
 
 function processSlider() {
@@ -56,9 +56,13 @@ function processSlider() {
 
 document.querySelector('#n-clust-slider').addEventListener('input', () => processSlider())
 
-// document.querySelector('#search-button').addEventListener('click',
-//     () => analyseTexts(document.getElementById('search-queries').value, 'out-plot', 'out-text')
-// )
+document.querySelector('#search-button').addEventListener('click', () => {
+    const nc = document.getElementById('n-clust-slider').value;
+    const query = document.getElementById('search-queries').value;
+    const nres = document.getElementById('n-results').value;
+    analyseTexts(query, {plotDivId: 'out-plot', textDivId: 'out-text', pyodideReadyPromise: pyodideReadyPromise, nClusters: nc, nResults: nres});
+}
+)
 </script>
 </body>
 </html>
