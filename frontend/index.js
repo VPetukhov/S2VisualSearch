@@ -1,8 +1,7 @@
 import embed from 'vega-embed';
 import winkNLP from 'wink-nlp';
 import model from 'wink-eng-lite-web-model';
-// import natural from 'natural';
-import { calculateTfIdf } from 'ts-tfidf'
+import { Corpus } from "tiny-tfidf";
 
 import { mean } from 'mathjs'
 import { UMAP } from 'umap-js';
@@ -11,35 +10,6 @@ import { agnes } from 'ml-hclust';
 const nlp = winkNLP(model, ['pos', 'ner', 'cer']);
 const its = nlp.its;
 const as = nlp.as;
-
-
-
-const pythonDefinitions = `
-import numpy as np
-from sklearn.decomposition import PCA
-from sklearn.manifold import MDS
-from sklearn.cluster import AgglomerativeClustering
-# import snowballstemmer
-from textblob import TextBlob, Word
-import re
-
-# stemmer = snowballstemmer.stemmer('english')
-
-def pca(vals, n_comps=10):
-    return PCA(n_components=n_comps).fit_transform(np.vstack(vals.to_py()))
-
-def mds(vals):
-    return MDS(n_components=2).fit_transform(np.vstack(vals.to_py()))
-
-def hclust(vals, n_clusters=10):
-    n_clusters = int(n_clusters)
-    ward = AgglomerativeClustering(n_clusters=n_clusters, linkage="ward").fit(np.vstack(vals.to_py()))
-    return ward.labels_
-
-def lemmatize(texts):
-    return [[Word(w).lemmatize() for w in text.split()] for text in texts]
-    # return [[w.lemmatize() for w in TextBlob(text).words] for text in texts]
-`
 
 function storeOrCreate(eid, func, force=false) {
   if (force || (sessionStorage.getItem(eid) === null)) {
@@ -58,27 +28,32 @@ function loadObject(eid) {
     return JSON.parse(sessionStorage.getItem(eid))
 }
 
-async function queryS2(query, limit=100) {
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function queryS2Short(query, limit=100, offset=0) {
     let fields = 'title,abstract,year,citationCount,influentialCitationCount,url'
-    let qUrl = `https://api.semanticscholar.org/graph/v1/paper/search?query="${query}"&limit=${limit}&offset=0&fields=${fields}`
+    let qUrl = `https://api.semanticscholar.org/graph/v1/paper/search?query="${query}"&limit=${limit}&offset=${offset}&fields=${fields}`
     console.log(qUrl)
 
     const response = await fetch(qUrl);
     const data = await response.json();
-    return data;
+    return data.data;
 }
 
-async function embedW2V(texts) {
-    const response = await fetch("http://127.0.0.1:28776/w2v", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-        },
-        body: JSON.stringify(texts)
-    });
-    const data = await response.json();
-    return data;
+
+async function queryS2(query, limit=100) {
+    if (limit <= 100)
+        return await queryS2Short(query, limit);
+
+    let res = []
+    for (let off = 0; off < limit; off += 100) {
+        res = res.concat(await queryS2Short(query, Math.min(limit - off, 100), off));
+        await sleep(200);
+    }
+
+    return res;
 }
 
 function plotTextEmbedding(data, clusterData, plotDivId, textDivId) {
@@ -91,22 +66,23 @@ function plotTextEmbedding(data, clusterData, plotDivId, textDivId) {
         "layer": [
             {
                 "data": {"name": "point-data"},
-                "mark": {"type": "circle", "tooltip": {"content": "data"}},
+                "mark": {"type": "circle"},
                 "encoding": {
                     "x": {
-                    "field": "x",
-                    "type": "quantitative",
-                    "scale": {"zero": false}
+                        "field": "x",
+                        "type": "quantitative",
+                        "scale": {"zero": false}
                     },
                     "y": {
-                    "field": "y",
-                    "type": "quantitative",
-                    "scale": {"zero": false}
+                        "field": "y",
+                        "type": "quantitative",
+                        "scale": {"zero": false}
                     },
                     "size": {"field": "logCit", "type": "quantitative"},
                 //   "color": {"field": "rank", "type": "quantitative", "scale": {"scheme": "goldred", "reverse": true}},
                     "color": {"field": "cluster"},
-                    "opacity": {"field": "opacity", "legend": null}
+                    "opacity": {"field": "opacity", "legend": null},
+                    "tooltip": [{"field": "title"}, {"field": "citationCount"}, {"field": "year"}, {"field": "cluster"}]
                 //   "shape": {"field": "Species", "type": "nominal"}
                 }
             },
@@ -135,6 +111,8 @@ function plotTextEmbedding(data, clusterData, plotDivId, textDivId) {
     //   console.log(schema)
       embed(`#${plotDivId}`, schema).then(function(result) {{
         result.view.addEventListener('click', function(event, item) {{
+            if (item === null || item.datum === undefined)
+                return;
             document.getElementById(textDivId).innerHTML = `<h2 class="title"><a href=${item.datum.url} target="_blank">${item.datum.title}</a></h2><br>${item.datum.abstract}`;
         }});
       }}).catch(console.error);
@@ -155,27 +133,37 @@ function preparePlotData(textData, embedding, clusters) {
     })
 }
 
-export async function updateNClusters({plotDivId, textDivId, pyodideReadyPromise, nClusters}) {
-    const emb = loadObject('embedding')
-    const pcaRes = loadObject('pcaRes')
-
-    let pyodide = await pyodideReadyPromise;
-    const clusts = pyodide.globals.get("hclust")(pcaRes, nClusters).toJs({create_proxies : false})
-    storeObject('clusts', clusts)
-
-    const data = loadObject('textData')
-    const plotData = preparePlotData(data, emb, clusts)
-    plotTextEmbedding(plotData, plotDivId, textDivId)
-    console.log("Updated!")
+function prepareClusterData(clusts, keywords, plotData) {
+    const clusterIds = getIdsPerCluster(clusts)
+    const clusterData = clusterIds.map((ids,ci) => {return({
+        x: mean(ids.map(i => plotData[i].x)),
+        y: mean(ids.map(i => plotData[i].y)),
+        cluster: keywords[ci]
+    })})
+    
+    return(clusterData)
 }
 
-export async function initializePython(pyodidePromise) {
-    let pyodide = await pyodidePromise;
-    await pyodide.loadPackage(["scikit-learn", "numpy", "micropip"]);
-    const micropip = pyodide.pyimport("micropip");
-    await micropip.install('textblob');
-    await micropip.install('snowballstemmer');
-    return pyodide;
+function hclust(vectors, nClusters, method='ward') {
+    const tree = agnes(vectors, {method: method});
+    const clusts = extractAgnesClusters(tree, nClusters, vectors.length)
+    return(clusts)
+}
+
+export async function updateNClusters({plotDivId, textDivId, pyodideReadyPromise, nClusters}) {
+    console.profile("clusters")
+    const emb = loadObject('umap')
+    const tokens = loadObject('tokens')
+    const docInfo = loadObject('docInfo')
+
+    const clusts = hclust(emb, nClusters)
+    const keywords = extractKeywordsTfIdf(tokens, clusts, {nKeywords: 5})
+
+    const plotData = preparePlotData(docInfo, emb, clusts.map(cl => keywords[cl]))
+    const clusterData = prepareClusterData(clusts, keywords, plotData)
+    plotTextEmbedding(plotData, clusterData, plotDivId, textDivId)
+    console.log("Updated!")
+    console.profileEnd()
 }
 
 function cosine(x, y) {
@@ -237,12 +225,15 @@ function getIdsPerCluster(clusters) {
 }
 
 function extractKeywordsTfIdf(tokens, clusters, {nKeywords=10} = {}) {
-    const tfidf = calculateTfIdf({texts: tokens.map(t => t.join(' '))})
+    const corpus = new Corpus(
+        tokens.map((t,i) => i), tokens.map(t => t.join(' ')), true, ["null"]
+    );
+    
     const clusterIds = getIdsPerCluster(clusters)
 
     // average tfidf for each cluster
-    const words = Array.from(tfidf[0].keys())
-    const clusterTfidf = clusterIds.map(ids => mean(ids.map(i => Array.from(tfidf[i].values())), 0))
+    const words = Array.from(corpus.getDocumentVector(0).keys())
+    const clusterTfidf = clusterIds.map(ids => mean(ids.map(i => Array.from(corpus.getDocumentVector(i).values())), 0))
 
     // get the top nKeywords keywords for each cluster
     const clusterKeywords = clusterTfidf.map(ct => {
@@ -256,48 +247,34 @@ function extractKeywordsTfIdf(tokens, clusters, {nKeywords=10} = {}) {
    // TODO: try to aggregate documents before constructing TfIdf
 }
 
-export default async function analyseTexts(query, {plotDivId, textDivId, pyodideReadyPromise, nResults=100, nClusters=10} = {}) {
+export default async function analyseTexts(query, {plotDivId, textDivId, nResults=100, nClusters=10} = {}) {
     console.log("Query: " + query)
     let w2vReq = fetchWord2Vec() //.then(w2v => {storeObject('w2v', w2v); return w2v;})
+    // let docInfo = await queryS2(query, nResults)
     let docInfo = await fetch('static/brain_disease_rna.json').then(r => r.json());
-    let docs = docInfo.map(d => nlp.readDoc(d.text))
-    let tokens = docs.map(d => {
+    docInfo = docInfo.map(d => {return({...d, text: d.title + " " + d.abstract})})
+    const docs = docInfo.map(d => nlp.readDoc(d.text))
+    const tokens = docs.map(d => {
         return d.tokens().
             filter( (t) => ( t.out(its.type) === 'word' && !t.out(its.stopWordFlag) ) ).
             out(its.normal) // its.lemma
     })
+    storeObject('tokens', tokens)
+    storeObject('docInfo', docInfo)
 
-    let w2v = await w2vReq;
-    let sentVecs = tokens.map(ts => embedSentence(ts, w2v))
+    const w2v = await w2vReq;
+    const sentVecs = tokens.map(ts => embedSentence(ts, w2v))
 
     const umap = new UMAP({minDist: 0.1, spread: 2, distanceFn: cosine});
     const embedding = umap.fit(sentVecs);
 
-    const tree = agnes(embedding, {method: 'ward'});
-    const clusts = extractAgnesClusters(tree, nClusters, embedding.length)
+    storeObject('umap', embedding)
+    const clusts = hclust(embedding, nClusters)
     const keywords = extractKeywordsTfIdf(tokens, clusts, {nKeywords: 5})
 
     const plotData = preparePlotData(docInfo, embedding, clusts.map(cl => keywords[cl]))
-    const clusterIds = getIdsPerCluster(clusts)
-    const clusterData = clusterIds.map(ids => {return({
-        x: mean(ids.map(i => plotData[i].x)),
-        y: mean(ids.map(i => plotData[i].y)),
-        cluster: plotData[ids[0]].cluster
-    })})
-    console.log(clusterData)
-
+    const clusterData = prepareClusterData(clusts, keywords, plotData)
     plotTextEmbedding(plotData, clusterData, plotDivId, textDivId)
-
-    // console.log(nlp)
-    // console.log(docs)
-    // console.log(clusts)
-    
-    // let res = queryS2(query, nResults)
-    // let pyodide = await pyodideReadyPromise;
-    // pyodide.runPython(pythonDefinitions)
-
-    // let texts = pyodide.globals.get("lemmatize")(['the bats saw the cats with stripes hanging upside down by their feet']).toJs({create_proxies : false})
-    // console.log(texts)
 
     return;
 

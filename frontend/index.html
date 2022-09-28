@@ -40,18 +40,15 @@
     </div>
 </main>
 <script type="module" type="text/javascript">
-import analyseTexts, { updateNClusters, initializePython} from './index.js';
-// let pyodideReadyPromise = loadPyodide().then(initializePython);
-let pyodideReadyPromise = null;
-// console.log(pyodideReadyPromise)
+import analyseTexts, { updateNClusters } from './index.js';
 
 let nClusters = document.getElementById('n-clust-slider').value
-analyseTexts("NLP", {plotDivId: 'out-plot', textDivId: 'out-text', pyodideReadyPromise: pyodideReadyPromise, nClusters: nClusters})
+analyseTexts("scRNA-seq", {plotDivId: 'out-plot', textDivId: 'out-text', nClusters: nClusters})
 
 function processSlider() {
     const nc = document.getElementById('n-clust-slider').value
     console.log(nc)
-    updateNClusters({plotDivId: 'out-plot', textDivId: 'out-text', pyodideReadyPromise: pyodideReadyPromise, nClusters: nc})
+    updateNClusters({plotDivId: 'out-plot', textDivId: 'out-text', nClusters: nc})
 }
 
 document.querySelector('#n-clust-slider').addEventListener('input', () => processSlider())
@@ -60,7 +57,7 @@ document.querySelector('#search-button').addEventListener('click', () => {
     const nc = document.getElementById('n-clust-slider').value;
     const query = document.getElementById('search-queries').value;
     const nres = document.getElementById('n-results').value;
-    analyseTexts(query, {plotDivId: 'out-plot', textDivId: 'out-text', pyodideReadyPromise: pyodideReadyPromise, nClusters: nc, nResults: nres});
+    analyseTexts(query, {plotDivId: 'out-plot', textDivId: 'out-text', nClusters: nc, nResults: nres});
 }
 )
 </script>
