@@ -5,11 +5,12 @@ import { Corpus } from "tiny-tfidf";
 
 import { mean } from 'mathjs'
 import { UMAP } from 'umap-js';
-import { agnes } from 'ml-hclust';
+import { agnes, Cluster } from 'ml-hclust';
 
 const nlp = winkNLP(model, ['pos', 'ner', 'cer']);
 const its = nlp.its;
 const as = nlp.as;
+
 
 function storeOrCreate(eid, func, force=false) {
   if (force || (sessionStorage.getItem(eid) === null)) {
@@ -144,26 +145,29 @@ function prepareClusterData(clusts, keywords, plotData) {
     return(clusterData)
 }
 
-function hclust(vectors, nClusters, method='ward') {
-    const tree = agnes(vectors, {method: method});
-    const clusts = extractAgnesClusters(tree, nClusters, vectors.length)
-    return(clusts)
+function toCluster(tree) {
+    const cluster = new Cluster();
+    cluster.height = tree.height;
+    cluster.size = tree.size;
+    cluster.index = tree.index;
+    cluster.isLeaf = tree.isLeaf;
+    cluster.children = tree.children.map(toCluster);
+    return cluster;
 }
 
-export async function updateNClusters({plotDivId, textDivId, pyodideReadyPromise, nClusters}) {
-    console.profile("clusters")
+export async function updateNClusters({plotDivId, textDivId, nClusters}) {
     const emb = loadObject('umap')
     const tokens = loadObject('tokens')
     const docInfo = loadObject('docInfo')
 
-    const clusts = hclust(emb, nClusters)
+    const tree = toCluster(loadObject('hclust'))
+    const clusts = extractAgnesClusters(tree, nClusters, emb.length)
+
     const keywords = extractKeywordsTfIdf(tokens, clusts, {nKeywords: 5})
 
     const plotData = preparePlotData(docInfo, emb, clusts.map(cl => keywords[cl]))
     const clusterData = prepareClusterData(clusts, keywords, plotData)
     plotTextEmbedding(plotData, clusterData, plotDivId, textDivId)
-    console.log("Updated!")
-    console.profileEnd()
 }
 
 function cosine(x, y) {
@@ -269,7 +273,10 @@ export default async function analyseTexts(query, {plotDivId, textDivId, nResult
     const embedding = umap.fit(sentVecs);
 
     storeObject('umap', embedding)
-    const clusts = hclust(embedding, nClusters)
+    const tree = agnes(embedding, {method: 'ward'});
+    storeObject('hclust', tree)
+    const clusts = extractAgnesClusters(tree, nClusters, embedding.length)
+
     const keywords = extractKeywordsTfIdf(tokens, clusts, {nKeywords: 5})
 
     const plotData = preparePlotData(docInfo, embedding, clusts.map(cl => keywords[cl]))
