@@ -82,7 +82,7 @@ function plotTextEmbedding(data, clusterData, plotDivId, textDivId) {
                 //   "color": {"field": "rank", "type": "quantitative", "scale": {"scheme": "goldred", "reverse": true}},
                     "color": {"field": "cluster"},
                     "opacity": {"field": "opacity", "legend": null},
-                    "tooltip": [{"field": "title"}, {"field": "citationCount"}, {"field": "year"}, {"field": "cluster"}]
+                    "tooltip": [{"field": "title"}, {"field": "citationCount"}, {"field": "year"}, {"field": "cluster"}, {"field": "rank"}]
                 //   "shape": {"field": "Species", "type": "nominal"}
                 }
             },

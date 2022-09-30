@@ -42,24 +42,31 @@
 <script type="module" type="text/javascript">
 import analyseTexts, { updateNClusters } from './index.js';
 
-let nClusters = document.getElementById('n-clust-slider').value
-analyseTexts("scRNA-seq", {plotDivId: 'out-plot', textDivId: 'out-text', nClusters: nClusters})
+if (navigator.userAgent.indexOf("Firefox") != -1) {
+    const err = "Please use Chrome or Safari. Firefox doesn't support the necessary functionality.";
+    alert(err);
+    document.getElementById('out-text').innerHTML = err;
+    document.getElementById('out-plot').innerHTML = err;
+} else {
+    // let nClusters = document.getElementById('n-clust-slider').value
+    // analyseTexts("scRNA-seq", {plotDivId: 'out-plot', textDivId: 'out-text', nClusters: nClusters})
 
-function processSlider() {
-    const nc = document.getElementById('n-clust-slider').value
-    console.log(nc)
-    updateNClusters({plotDivId: 'out-plot', textDivId: 'out-text', nClusters: nc})
+    function processSlider() {
+        const nc = document.getElementById('n-clust-slider').value
+        console.log(nc)
+        updateNClusters({plotDivId: 'out-plot', textDivId: 'out-text', nClusters: nc})
+    }
+
+    document.querySelector('#n-clust-slider').addEventListener('input', () => processSlider())
+
+    document.querySelector('#search-button').addEventListener('click', () => {
+        const nc = document.getElementById('n-clust-slider').value;
+        const query = document.getElementById('search-queries').value;
+        const nres = document.getElementById('n-results').value;
+        analyseTexts(query, {plotDivId: 'out-plot', textDivId: 'out-text', nClusters: nc, nResults: nres});
+    }
+    )
 }
-
-document.querySelector('#n-clust-slider').addEventListener('input', () => processSlider())
-
-document.querySelector('#search-button').addEventListener('click', () => {
-    const nc = document.getElementById('n-clust-slider').value;
-    const query = document.getElementById('search-queries').value;
-    const nres = document.getElementById('n-results').value;
-    analyseTexts(query, {plotDivId: 'out-plot', textDivId: 'out-text', nClusters: nc, nResults: nres});
-}
-)
 </script>
 </body>
 </html>
