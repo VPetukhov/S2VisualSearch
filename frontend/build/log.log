@@ -1,0 +1,457 @@
+yarn run v1.22.19
+warning package.json: No license field
+$ /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/.bin/snowpack build --verbose --clean --reload
+[19:52:23] [snowpack] ! clearing cache...
+[19:52:23] [snowpack] run command: build
+[19:52:23] [snowpack] config loaded: {
+  root: '/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend',
+  plugins: [
+    {
+      name: '@snowpack/plugin-esbuild',
+      resolve: [Object],
+      load: [AsyncFunction: load],
+      cleanup: [Function: cleanup]
+    }
+  ],
+  alias: {},
+  env: {},
+  exclude: [
+    '**/_*.{sass,scss}',
+    '**.d.ts',
+    '/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/build/**',
+    '**/node_modules/**'
+  ],
+  routes: [],
+  dependencies: {},
+  devOptions: {
+    secure: false,
+    hostname: 'localhost',
+    port: 8080,
+    hmrDelay: 0,
+    hmrPort: undefined,
+    hmrErrorOverlay: true
+  },
+  buildOptions: {
+    out: '/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/build',
+    baseUrl: '/',
+    metaUrlPath: '/_snowpack',
+    cacheDirPath: '/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/.cache/snowpack',
+    clean: true,
+    sourcemap: false,
+    watch: false,
+    htmlFragments: false,
+    ssr: false,
+    resolveProxyImports: true
+  },
+  testOptions: { files: [ '__tests__/**/*', '**/*.@(spec|test).*' ] },
+  packageOptions: {
+    source: 'local',
+    external: [],
+    packageLookupFields: [],
+    knownEntrypoints: [],
+    rollup: { plugins: [] }
+  },
+  mount: {
+    '/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend': { url: '/', static: false, resolve: true, dot: false }
+  },
+  experiments: {},
+  mode: 'production',
+  optimize: undefined,
+  _extensionMap: {
+    '.mjs': [ '.js' ],
+    '.jsx': [ '.js' ],
+    '.ts': [ '.js' ],
+    '.tsx': [ '.js' ]
+  }
+}
+[19:52:23] [snowpack] lockfile not loaded
+[19:52:23] [snowpack] Mounting directory: '/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend' as URL '/'
+[19:52:23] [snowpack] Using in-memory cache: [object Object]
+[19:52:23] [snowpack] Mounting directory: '/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend' as URL '/'
+[19:52:23] [snowpack] ! building files...
+[19:52:23] [snowpack] QUEUE: /KeywordWorker.js,/cluster-utils.js,/index.html,/index.js,/log.log,/log.logs,/package.json,/snowpack.config.js,/yarn-error.log,/yarn.lock,/static/brain_disease_rna.json,/static/w2v.json,/node_modules/aws4/.github/FUNDING.yml,/node_modules/balanced-match/.github/FUNDING.yml,/node_modules/fast-json-stable-stringify/.github/FUNDING.yml,/node_modules/generic-names/.idea/encodings.xml,/node_modules/generic-names/.idea/misc.xml,/node_modules/generic-names/.idea/modules.xml,/node_modules/generic-names/.idea/php.xml,/node_modules/generic-names/.idea/runConfigurations.xml,/node_modules/generic-names/.idea/vcs.xml,/node_modules/iconv-lite/.github/dependabot.yml,/node_modules/iconv-lite/.idea/iconv-lite.iml,/node_modules/iconv-lite/.idea/modules.xml,/node_modules/iconv-lite/.idea/vcs.xml,/node_modules/javascript-natural-sort/.idea/encodings.xml,/node_modules/javascript-natural-sort/.idea/javascript-natural-sort.iml,/node_modules/javascript-natural-sort/.idea/misc.xml,/node_modules/javascript-natural-sort/.idea/modules.xml,/node_modules/javascript-natural-sort/.idea/vcs.xml,/node_modules/javascript-natural-sort/.idea/workspace.xml,/node_modules/node-gyp/.github/ISSUE_TEMPLATE.md,/node_modules/node-gyp/.github/PULL_REQUEST_TEMPLATE.md,/node_modules/npm-normalize-package-bin/.github/settings.yml,/node_modules/promise-all-reject-late/.github/FUNDING.yml,/node_modules/qs/.github/FUNDING.yml,/node_modules/resolve/.github/FUNDING.yml,/node_modules/seedrandom/.nyc_output/f02e18a9-b1c7-4946-836e-c3dbfb9635a3.json,/node_modules/supports-preserve-symlinks-flag/.github/FUNDING.yml,/node_modules/unique-filename/.nyc_output/54942.json,/node_modules/unique-filename/.nyc_output/54944.json,/node_modules/validate-npm-package-name/.nyc_output/aa4ee25ac41a9c3c7ee37ce965e6d1ac.json,/node_modules/validate-npm-package-name/.nyc_output/bb918173e62b9517f55b630902d07ef4.json,/node_modules/wink-nlp/.nyc_output/727a0ee4-8cb0-457f-bc8b-9fa9f09a3d59.json,/node_modules/generic-names/.idea/codeStyles/codeStyleConfig.xml,/node_modules/generic-names/.idea/dictionaries/sheo13666q.xml,/node_modules/generic-names/.idea/inspectionProfiles/Project_Default.xml,/node_modules/iconv-lite/.idea/codeStyles/Project.xml,/node_modules/iconv-lite/.idea/codeStyles/codeStyleConfig.xml,/node_modules/iconv-lite/.idea/inspectionProfiles/Project_Default.xml,/node_modules/javascript-natural-sort/.idea/scopes/scope_settings.xml,/node_modules/node-gyp/.github/workflows/tests.yml,/node_modules/seedrandom/.nyc_output/processinfo/f02e18a9-b1c7-4946-836e-c3dbfb9635a3.json,/node_modules/seedrandom/.nyc_output/processinfo/index.json,/node_modules/wink-nlp/.nyc_output/processinfo/727a0ee4-8cb0-457f-bc8b-9fa9f09a3d59.json,/node_modules/wink-nlp/.nyc_output/processinfo/index.json,/node_modules/node-gyp/gyp/.github/workflows/Python_tests.yml,/node_modules/node-gyp/gyp/.github/workflows/node-gyp.yml,/node_modules/node-gyp/gyp/.github/workflows/nodejs-windows.yml,/node_modules/node-gyp/gyp/.github/workflows/release-please.yml
+[19:52:23] [snowpack] BUILD: /KeywordWorker.js
+[19:52:23] [snowpack] Scanning KeywordWorker.js for imports as JS
+[19:52:23] [snowpack] ADD: /cluster-utils.js
+[19:52:23] [snowpack] BUILD: /cluster-utils.js
+[19:52:23] [snowpack] Scanning cluster-utils.js for imports as JS
+[19:52:24] [snowpack] ADD: tiny-tfidf
+[19:52:24] [snowpack] ADD: ml-hclust
+[19:52:24] [snowpack] ADD: mathjs
+[19:52:24] [snowpack] BUILD: /index.html
+[19:52:24] [snowpack] Scanning index.html for imports as HTML
+[19:52:24] [snowpack] ADD: /index.js
+[19:52:24] [snowpack] BUILD: /index.js
+[19:52:24] [snowpack] Scanning index.js for imports as JS
+[19:52:24] [snowpack] ADD: /cluster-utils.js
+[19:52:24] [snowpack] ADD: vega-embed
+[19:52:24] [snowpack] ADD: wink-nlp
+[19:52:24] [snowpack] ADD: wink-eng-lite-web-model
+[19:52:24] [snowpack] ADD: mathjs
+[19:52:24] [snowpack] ADD: umap-js
+[19:52:24] [snowpack] ADD: ml-hclust
+[19:52:24] [snowpack] BUILD: /log.log
+[19:52:24] [snowpack] BUILD: /log.logs
+[19:52:24] [snowpack] BUILD: /package.json
+[19:52:24] [snowpack] BUILD: /snowpack.config.js
+[19:52:24] [snowpack] Scanning snowpack.config.js for imports as JS
+[19:52:24] [snowpack] BUILD: /yarn-error.log
+[19:52:24] [snowpack] BUILD: /yarn.lock
+[19:52:24] [snowpack] BUILD: /static/brain_disease_rna.json
+[19:52:24] [snowpack] BUILD: /static/w2v.json
+[19:52:24] [snowpack] BUILD: /node_modules/aws4/.github/FUNDING.yml
+[19:52:24] [snowpack] BUILD: /node_modules/balanced-match/.github/FUNDING.yml
+[19:52:24] [snowpack] BUILD: /node_modules/fast-json-stable-stringify/.github/FUNDING.yml
+[19:52:24] [snowpack] BUILD: /node_modules/generic-names/.idea/encodings.xml
+[19:52:24] [snowpack] BUILD: /node_modules/generic-names/.idea/misc.xml
+[19:52:24] [snowpack] BUILD: /node_modules/generic-names/.idea/modules.xml
+[19:52:24] [snowpack] BUILD: /node_modules/generic-names/.idea/php.xml
+[19:52:24] [snowpack] BUILD: /node_modules/generic-names/.idea/runConfigurations.xml
+[19:52:24] [snowpack] BUILD: /node_modules/generic-names/.idea/vcs.xml
+[19:52:24] [snowpack] BUILD: /node_modules/iconv-lite/.github/dependabot.yml
+[19:52:24] [snowpack] BUILD: /node_modules/iconv-lite/.idea/iconv-lite.iml
+[19:52:24] [snowpack] BUILD: /node_modules/iconv-lite/.idea/modules.xml
+[19:52:24] [snowpack] BUILD: /node_modules/iconv-lite/.idea/vcs.xml
+[19:52:24] [snowpack] BUILD: /node_modules/javascript-natural-sort/.idea/encodings.xml
+[19:52:24] [snowpack] BUILD: /node_modules/javascript-natural-sort/.idea/javascript-natural-sort.iml
+[19:52:24] [snowpack] BUILD: /node_modules/javascript-natural-sort/.idea/misc.xml
+[19:52:24] [snowpack] BUILD: /node_modules/javascript-natural-sort/.idea/modules.xml
+[19:52:24] [snowpack] BUILD: /node_modules/javascript-natural-sort/.idea/vcs.xml
+[19:52:24] [snowpack] BUILD: /node_modules/javascript-natural-sort/.idea/workspace.xml
+[19:52:24] [snowpack] BUILD: /node_modules/node-gyp/.github/ISSUE_TEMPLATE.md
+[19:52:24] [snowpack] BUILD: /node_modules/node-gyp/.github/PULL_REQUEST_TEMPLATE.md
+[19:52:24] [snowpack] BUILD: /node_modules/npm-normalize-package-bin/.github/settings.yml
+[19:52:24] [snowpack] BUILD: /node_modules/promise-all-reject-late/.github/FUNDING.yml
+[19:52:24] [snowpack] BUILD: /node_modules/qs/.github/FUNDING.yml
+[19:52:24] [snowpack] BUILD: /node_modules/resolve/.github/FUNDING.yml
+[19:52:24] [snowpack] BUILD: /node_modules/seedrandom/.nyc_output/f02e18a9-b1c7-4946-836e-c3dbfb9635a3.json
+[19:52:24] [snowpack] BUILD: /node_modules/supports-preserve-symlinks-flag/.github/FUNDING.yml
+[19:52:24] [snowpack] BUILD: /node_modules/unique-filename/.nyc_output/54942.json
+[19:52:24] [snowpack] BUILD: /node_modules/unique-filename/.nyc_output/54944.json
+[19:52:24] [snowpack] BUILD: /node_modules/validate-npm-package-name/.nyc_output/aa4ee25ac41a9c3c7ee37ce965e6d1ac.json
+[19:52:24] [snowpack] BUILD: /node_modules/validate-npm-package-name/.nyc_output/bb918173e62b9517f55b630902d07ef4.json
+[19:52:24] [snowpack] BUILD: /node_modules/wink-nlp/.nyc_output/727a0ee4-8cb0-457f-bc8b-9fa9f09a3d59.json
+[19:52:24] [snowpack] BUILD: /node_modules/generic-names/.idea/codeStyles/codeStyleConfig.xml
+[19:52:24] [snowpack] BUILD: /node_modules/generic-names/.idea/dictionaries/sheo13666q.xml
+[19:52:24] [snowpack] BUILD: /node_modules/generic-names/.idea/inspectionProfiles/Project_Default.xml
+[19:52:24] [snowpack] BUILD: /node_modules/iconv-lite/.idea/codeStyles/Project.xml
+[19:52:24] [snowpack] BUILD: /node_modules/iconv-lite/.idea/codeStyles/codeStyleConfig.xml
+[19:52:24] [snowpack] BUILD: /node_modules/iconv-lite/.idea/inspectionProfiles/Project_Default.xml
+[19:52:24] [snowpack] BUILD: /node_modules/javascript-natural-sort/.idea/scopes/scope_settings.xml
+[19:52:24] [snowpack] BUILD: /node_modules/node-gyp/.github/workflows/tests.yml
+[19:52:24] [snowpack] BUILD: /node_modules/seedrandom/.nyc_output/processinfo/f02e18a9-b1c7-4946-836e-c3dbfb9635a3.json
+[19:52:24] [snowpack] BUILD: /node_modules/seedrandom/.nyc_output/processinfo/index.json
+[19:52:24] [snowpack] BUILD: /node_modules/wink-nlp/.nyc_output/processinfo/727a0ee4-8cb0-457f-bc8b-9fa9f09a3d59.json
+[19:52:24] [snowpack] BUILD: /node_modules/wink-nlp/.nyc_output/processinfo/index.json
+[19:52:24] [snowpack] BUILD: /node_modules/node-gyp/gyp/.github/workflows/Python_tests.yml
+[19:52:24] [snowpack] BUILD: /node_modules/node-gyp/gyp/.github/workflows/node-gyp.yml
+[19:52:24] [snowpack] BUILD: /node_modules/node-gyp/gyp/.github/workflows/nodejs-windows.yml
+[19:52:24] [snowpack] BUILD: /node_modules/node-gyp/gyp/.github/workflows/release-please.yml
+[19:52:24] [snowpack] ✔ files built. [0.15s]
+[19:52:24] [snowpack] ! building dependencies...
+[19:52:24] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend
+[19:52:24] [esinstall] running installer with options: {"input":{"mathjs":"/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/mathjs/lib/esm/index.js","ml-hclust":"/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/ml-hclust/src/index.js","tiny-tfidf":"/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/tiny-tfidf/index.js","umap-js":"/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/umap-js/dist/index.js","vega-embed":"/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-embed/build/vega-embed.module.js","wink-eng-lite-web-model":"/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/wink-eng-lite-web-model/dist/model.js","wink-nlp":"/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/wink-nlp/src/wink-nlp.js"},"treeshake":{"moduleSideEffects":true},"plugins":[{"name":"alias"},{"name":"snowpack:fetch-handler"},{"name":"node-resolve"},{"name":"json"},{"name":"snowpack:rollup-plugin-css"},{"name":"replace"},{"name":"commonjs"},{"name":"snowpack:wrap-install-targets"},{"name":"snowpack:rollup-plugin-node-process-polyfill"},{"name":"esinstall:snowpack"},{"name":"snowpack:rollup-plugin-catch-unresolved"},{"name":"snowpack:rollup-plugin-strip-source-mapping"}]}
+[19:52:24] [esinstall] cjsAutoDetectExportsStatic /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/mathjs/lib/esm/index.js: Unexpected export statement in CJS module.
+  at @:1:8
+[19:52:24] [esinstall] cjsAutoDetectExportsRuntime error /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/mathjs/lib/esm/index.js: Command failed with exit code 1: node -p JSON.stringify(Object.keys(require('/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/mathjs/lib/esm/index.js')))
+node:internal/modules/cjs/loader:1171
+      throw err;
+      ^
+
+Error [ERR_REQUIRE_ESM]: require() of ES Module /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/mathjs/lib/esm/index.js from /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/esinstall/lib/rollup-plugins/[eval] not supported.
+Instead change the require of index.js in /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/esinstall/lib/rollup-plugins/[eval] to a dynamic import() which is available in all CommonJS modules.
+    at [eval]:1:28
+    at Script.runInThisContext (node:vm:129:12)
+    at Object.runInThisContext (node:vm:313:38)
+    at [eval]-wrapper:6:22 {
+  code: 'ERR_REQUIRE_ESM'
+}
+
+Node.js v18.7.0
+[19:52:24] [esinstall] cjsAutoDetectExportsRuntimeUntrusted error /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/mathjs/lib/esm/index.js: Unexpected token 'export'
+[19:52:24] [esinstall] cjsAutoDetectExportsStatic /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/ml-hclust/src/index.js: Unexpected export statement in CJS module.
+  at @:1:8
+[19:52:24] [esinstall] cjsAutoDetectExportsRuntime error /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/ml-hclust/src/index.js: Command failed with exit code 1: node -p JSON.stringify(Object.keys(require('/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/ml-hclust/src/index.js')))
+/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/ml-hclust/src/index.js:1
+export * from './agnes';
+^^^^^^
+
+SyntaxError: Unexpected token 'export'
+    at Object.compileFunction (node:vm:360:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1049:15)
+    at Module._compile (node:internal/modules/cjs/loader:1084:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1174:10)
+    at Module.load (node:internal/modules/cjs/loader:998:32)
+    at Module._load (node:internal/modules/cjs/loader:839:12)
+    at Module.require (node:internal/modules/cjs/loader:1022:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at [eval]:1:28
+    at Script.runInThisContext (node:vm:129:12)
+
+Node.js v18.7.0
+[19:52:24] [esinstall] cjsAutoDetectExportsRuntimeUntrusted error /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/ml-hclust/src/index.js: Unexpected token 'export'
+[19:52:24] [esinstall] cjsAutoDetectExportsStatic /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/tiny-tfidf/index.js: Unexpected export statement in CJS module.
+  at @:1:8
+[19:52:24] [esinstall] cjsAutoDetectExportsRuntime error /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/tiny-tfidf/index.js: Command failed with exit code 1: node -p JSON.stringify(Object.keys(require('/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/tiny-tfidf/index.js')))
+node:internal/modules/cjs/loader:1171
+      throw err;
+      ^
+
+Error [ERR_REQUIRE_ESM]: require() of ES Module /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/tiny-tfidf/index.js from /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/esinstall/lib/rollup-plugins/[eval] not supported.
+Instead change the require of index.js in /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/esinstall/lib/rollup-plugins/[eval] to a dynamic import() which is available in all CommonJS modules.
+    at [eval]:1:28
+    at Script.runInThisContext (node:vm:129:12)
+    at Object.runInThisContext (node:vm:313:38)
+    at [eval]-wrapper:6:22 {
+  code: 'ERR_REQUIRE_ESM'
+}
+
+Node.js v18.7.0
+[19:52:24] [esinstall] cjsAutoDetectExportsRuntimeUntrusted error /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/tiny-tfidf/index.js: Unexpected token 'export'
+[19:52:24] [esinstall] cjsAutoDetectExportsStatic /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-embed/build/vega-embed.module.js: Unexpected import statement in CJS module.
+  at @:1:8
+[19:52:24] [esinstall] cjsAutoDetectExportsRuntime error /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-embed/build/vega-embed.module.js: Command failed with exit code 1: node -p JSON.stringify(Object.keys(require('/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-embed/build/vega-embed.module.js')))
+/home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-embed/build/vega-embed.module.js:1
+import { applyPatch } from 'fast-json-patch';
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+    at Object.compileFunction (node:vm:360:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1049:15)
+    at Module._compile (node:internal/modules/cjs/loader:1084:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1174:10)
+    at Module.load (node:internal/modules/cjs/loader:998:32)
+    at Module._load (node:internal/modules/cjs/loader:839:12)
+    at Module.require (node:internal/modules/cjs/loader:1022:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at [eval]:1:28
+    at Script.runInThisContext (node:vm:129:12)
+
+Node.js v18.7.0
+[19:52:24] [esinstall] cjsAutoDetectExportsRuntimeUntrusted error /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-embed/build/vega-embed.module.js: 'import' and 'export' may appear only with 'sourceType: module'
+[19:52:24] [esinstall] cjsAutoDetectExportsRuntime success /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/wink-eng-lite-web-model/dist/model.js: core,sbd,pos,ner,negation,sa,metaCER,featureFn,addons
+[19:52:24] [esinstall] cjsAutoDetectExportsRuntime success /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/wink-nlp/src/wink-nlp.js: 
+[19:52:25] [@snowpack/plugin-esbuild] load() starting… [node_modules/fast-json-patch/index.mjs]
+[19:52:26] [@snowpack/plugin-esbuild] ✔ load() success [node_modules/fast-json-patch/index.mjs]
+[19:52:26] [@snowpack/plugin-esbuild] load() starting… [node_modules/fast-json-patch/module/core.mjs]
+[19:52:26] [@snowpack/plugin-esbuild] load() starting… [node_modules/fast-json-patch/module/duplex.mjs]
+[19:52:26] [@snowpack/plugin-esbuild] load() starting… [node_modules/fast-json-patch/module/helpers.mjs]
+[19:52:26] [@snowpack/plugin-esbuild] ✔ load() success [node_modules/fast-json-patch/module/duplex.mjs]
+[19:52:26] [@snowpack/plugin-esbuild] ✔ load() success [node_modules/fast-json-patch/module/helpers.mjs]
+[19:52:26] [@snowpack/plugin-esbuild] ✔ load() success [node_modules/fast-json-patch/module/core.mjs]
+[19:52:26] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/fast-json-patch/module/helpers.mjs:6:16 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:26] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/fast-json-patch/module/helpers.mjs:6:24 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:28] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/compile.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:28] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/compile.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:31] [@snowpack/plugin-esbuild] load() starting… [node_modules/typed-function/lib/esm/typed-function.mjs]
+[19:52:31] [@snowpack/plugin-esbuild] load() starting… [node_modules/array-flat-polyfill/index.mjs]
+[19:52:31] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/channeldef.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:31] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/channeldef.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:31] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/channel.js:5:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:31] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/channel.js:5:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:31] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/config.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:31] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/config.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:31] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/parameter.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:31] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/parameter.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:31] [@snowpack/plugin-esbuild] ✔ load() success [node_modules/typed-function/lib/esm/typed-function.mjs]
+[19:52:31] [@snowpack/plugin-esbuild] ✔ load() success [node_modules/array-flat-polyfill/index.mjs]
+[19:52:32] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/log/index.js:4:30 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:32] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/log/index.js:4:38 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:32] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/log/index.js:10:30 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:32] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/log/index.js:10:38 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:32] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/normalize/selectioncompat.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:32] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/normalize/selectioncompat.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:32] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/normalize/core.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:32] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/normalize/core.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:33] [@snowpack/plugin-esbuild] load() starting… [node_modules/decimal.js/decimal.mjs]
+[19:52:33] [@snowpack/plugin-esbuild] ✔ load() success [node_modules/decimal.js/decimal.mjs]
+[19:52:33] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/scale.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:33] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/scale.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:33] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/timeunit.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:33] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/timeunit.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:33] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/title.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:33] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/title.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/common.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/common.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/bin.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/bin.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/density.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/density.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/loess.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/loess.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/quantile.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/quantile.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/regression.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/regression.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/timeunit.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/timeunit.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/encoding.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:34] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/encoding.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/spec/map.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/spec/map.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compositemark/boxplot.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compositemark/boxplot.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compositemark/errorbar.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compositemark/errorbar.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/normalize/pathoverlay.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/normalize/pathoverlay.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/normalize/repeater.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/normalize/repeater.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/model.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/model.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/selection/assemble.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/selection/assemble.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/scale/domain.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/scale/domain.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/axis/assemble.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/axis/assemble.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/legend/assemble.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:35] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/legend/assemble.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:36] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/optimizer.js:1:30 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:36] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/optimizer.js:1:38 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:36] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/optimizer.js:7:30 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:36] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/data/optimizer.js:7:38 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:36] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compositemark/common.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:36] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compositemark/common.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:36] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/scale/assemble.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:36] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/scale/assemble.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:36] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/selection/interval.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:36] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/selection/interval.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:36] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/selection/project.js:1:14 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:36] [esinstall] /home/vpetukhov/other/NLPProjects/SearchEngineVis/frontend/node_modules/vega-lite/build/src/compile/selection/project.js:1:22 The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+[19:52:36] [esinstall] Circular dependency: node_modules/d3-interpolate/src/value.js -> node_modules/d3-interpolate/src/array.js -> node_modules/d3-interpolate/src/value.js
+[19:52:36] [esinstall] Circular dependency: node_modules/d3-interpolate/src/value.js -> node_modules/d3-interpolate/src/object.js -> node_modules/d3-interpolate/src/value.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/channeldef.js -> node_modules/vega-lite/build/src/bin.js -> node_modules/vega-lite/build/src/channeldef.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/channeldef.js -> node_modules/vega-lite/build/src/compile/common.js -> node_modules/vega-lite/build/src/channeldef.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/common.js -> node_modules/vega-lite/build/src/expr.js -> node_modules/vega-lite/build/src/compile/common.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/channeldef.js -> node_modules/vega-lite/build/src/compile/format.js -> node_modules/vega-lite/build/src/channeldef.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/channeldef.js -> node_modules/vega-lite/build/src/compile/format.js -> node_modules/vega-lite/build/src/predicate.js -> node_modules/vega-lite/build/src/channeldef.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/timeunit.js -> node_modules/vega-lite/build/src/datetime.js -> node_modules/vega-lite/build/src/timeunit.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/channeldef.js -> node_modules/vega-lite/build/src/compile/format.js -> node_modules/vega-lite/build/src/compile/mark/encode/valueref.js -> node_modules/vega-lite/build/src/channeldef.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/buildmodel.js -> node_modules/vega-lite/build/src/compile/concat.js -> node_modules/vega-lite/build/src/compile/buildmodel.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/axis/assemble.js -> node_modules/vega-lite/build/src/compile/predicate.js -> node_modules/vega-lite/build/src/compile/selection/parse.js -> node_modules/vega-lite/build/src/compile/selection/index.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/selection/index.js -> node_modules/vega-lite/build/src/compile/selection/interval.js -> node_modules/vega-lite/build/src/compile/selection/index.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/selection/index.js -> node_modules/vega-lite/build/src/compile/selection/interval.js -> node_modules/vega-lite/build/src/compile/selection/assemble.js -> node_modules/vega-lite/build/src/compile/selection/index.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/axis/assemble.js -> node_modules/vega-lite/build/src/compile/predicate.js -> node_modules/vega-lite/build/src/compile/selection/parse.js -> node_modules/vega-lite/build/src/compile/selection/index.js -> node_modules/vega-lite/build/src/compile/selection/interval.js -> node_modules/vega-lite/build/src/compile/selection/assemble.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/selection/parse.js -> node_modules/vega-lite/build/src/compile/selection/index.js -> node_modules/vega-lite/build/src/compile/selection/interval.js -> node_modules/vega-lite/build/src/compile/selection/assemble.js -> node_modules/vega-lite/build/src/compile/selection/parse.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/selection/index.js -> node_modules/vega-lite/build/src/compile/selection/interval.js -> node_modules/vega-lite/build/src/compile/selection/scales.js -> node_modules/vega-lite/build/src/compile/selection/index.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/axis/assemble.js -> node_modules/vega-lite/build/src/compile/predicate.js -> node_modules/vega-lite/build/src/compile/selection/parse.js -> node_modules/vega-lite/build/src/compile/selection/index.js -> node_modules/vega-lite/build/src/compile/selection/interval.js -> node_modules/vega-lite/build/src/compile/selection/scales.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/selection/index.js -> node_modules/vega-lite/build/src/compile/selection/point.js -> node_modules/vega-lite/build/src/compile/selection/index.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/selection/index.js -> node_modules/vega-lite/build/src/compile/selection/clear.js -> node_modules/vega-lite/build/src/compile/selection/index.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/selection/index.js -> node_modules/vega-lite/build/src/compile/selection/clear.js -> node_modules/vega-lite/build/src/compile/selection/inputs.js -> node_modules/vega-lite/build/src/compile/selection/index.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/predicate.js -> node_modules/vega-lite/build/src/compile/selection/parse.js -> node_modules/vega-lite/build/src/compile/selection/index.js -> node_modules/vega-lite/build/src/compile/selection/clear.js -> node_modules/vega-lite/build/src/compile/selection/inputs.js -> node_modules/vega-lite/build/src/compile/selection/nearest.js -> node_modules/vega-lite/build/src/compile/mark/encode/index.js -> node_modules/vega-lite/build/src/compile/mark/encode/aria.js -> node_modules/vega-lite/build/src/compile/mark/encode/conditional.js -> node_modules/vega-lite/build/src/compile/predicate.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/selection/parse.js -> node_modules/vega-lite/build/src/compile/selection/index.js -> node_modules/vega-lite/build/src/compile/selection/clear.js -> node_modules/vega-lite/build/src/compile/selection/inputs.js -> node_modules/vega-lite/build/src/compile/selection/nearest.js -> node_modules/vega-lite/build/src/compile/mark/encode/index.js -> node_modules/vega-lite/build/src/compile/mark/encode/aria.js -> node_modules/vega-lite/build/src/compile/mark/encode/conditional.js -> node_modules/vega-lite/build/src/compile/selection/parse.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/selection/index.js -> node_modules/vega-lite/build/src/compile/selection/clear.js -> node_modules/vega-lite/build/src/compile/selection/toggle.js -> node_modules/vega-lite/build/src/compile/selection/index.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/selection/index.js -> node_modules/vega-lite/build/src/compile/selection/legends.js -> node_modules/vega-lite/build/src/compile/selection/index.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/predicate.js -> node_modules/vega-lite/build/src/compile/selection/parse.js -> node_modules/vega-lite/build/src/compile/data/filter.js -> node_modules/vega-lite/build/src/compile/predicate.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/header/assemble.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/layoutsize/assemble.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/legend/assemble.js -> node_modules/vega-lite/build/src/compile/legend/parse.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/legend/assemble.js -> node_modules/vega-lite/build/src/compile/legend/parse.js -> node_modules/vega-lite/build/src/compile/resolve.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/projection/assemble.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/projection/parse.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/scale/assemble.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/scale/assemble.js -> node_modules/vega-lite/build/src/compile/scale/domain.js -> node_modules/vega-lite/build/src/compile/data/bin.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/scale/assemble.js -> node_modules/vega-lite/build/src/compile/scale/domain.js -> node_modules/vega-lite/build/src/compile/data/optimize.js -> node_modules/vega-lite/build/src/compile/data/optimizers.js -> node_modules/vega-lite/build/src/compile/data/aggregate.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/scale/domain.js -> node_modules/vega-lite/build/src/compile/data/optimize.js -> node_modules/vega-lite/build/src/compile/data/optimizers.js -> node_modules/vega-lite/build/src/compile/data/facet.js -> node_modules/vega-lite/build/src/compile/scale/domain.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/scale/assemble.js -> node_modules/vega-lite/build/src/compile/scale/domain.js -> node_modules/vega-lite/build/src/compile/data/optimize.js -> node_modules/vega-lite/build/src/compile/data/optimizers.js -> node_modules/vega-lite/build/src/compile/data/formatparse.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/data/optimize.js -> node_modules/vega-lite/build/src/compile/data/subtree.js -> node_modules/vega-lite/build/src/compile/data/optimize.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/scale/assemble.js -> node_modules/vega-lite/build/src/compile/scale/domain.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/scale/parse.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/model.js -> node_modules/vega-lite/build/src/compile/scale/parse.js -> node_modules/vega-lite/build/src/compile/scale/properties.js -> node_modules/vega-lite/build/src/compile/model.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/buildmodel.js -> node_modules/vega-lite/build/src/compile/concat.js -> node_modules/vega-lite/build/src/compile/data/parse.js -> node_modules/vega-lite/build/src/compile/data/joinaggregatefacet.js -> node_modules/vega-lite/build/src/compile/facet.js -> node_modules/vega-lite/build/src/compile/buildmodel.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/data/parse.js -> node_modules/vega-lite/build/src/compile/data/joinaggregatefacet.js -> node_modules/vega-lite/build/src/compile/facet.js -> node_modules/vega-lite/build/src/compile/data/assemble.js -> node_modules/vega-lite/build/src/compile/data/lookup.js -> node_modules/vega-lite/build/src/compile/data/parse.js
+[19:52:36] [esinstall] Circular dependency: node_modules/vega-lite/build/src/compile/data/parse.js -> node_modules/vega-lite/build/src/compile/data/joinaggregatefacet.js -> node_modules/vega-lite/build/src/compile/facet.js -> node_modules/vega-lite/build/src/compile/data/parse.js
+[19:52:39] [esinstall] installing npm packages: mathjs, ml-hclust, tiny-tfidf, umap-js, vega-embed, wink-eng-lite-web-model, wink-nlp
+[19:52:39] [esinstall] writing install results to disk
+[19:52:39] [snowpack] Successfully ran esinstall.
+[19:52:39] [snowpack] ✔ dependencies built. [15.79s]
+[19:52:39] [snowpack] ! writing to disk...
+[19:52:39] [snowpack] QUEUE: /KeywordWorker.js,/cluster-utils.js,/index.html,/index.js,/log.log,/log.logs,/package.json,/snowpack.config.js,/yarn-error.log,/yarn.lock,/static/brain_disease_rna.json,/static/w2v.json,/node_modules/aws4/.github/FUNDING.yml,/node_modules/balanced-match/.github/FUNDING.yml,/node_modules/fast-json-stable-stringify/.github/FUNDING.yml,/node_modules/generic-names/.idea/encodings.xml,/node_modules/generic-names/.idea/misc.xml,/node_modules/generic-names/.idea/modules.xml,/node_modules/generic-names/.idea/php.xml,/node_modules/generic-names/.idea/runConfigurations.xml,/node_modules/generic-names/.idea/vcs.xml,/node_modules/iconv-lite/.github/dependabot.yml,/node_modules/iconv-lite/.idea/iconv-lite.iml,/node_modules/iconv-lite/.idea/modules.xml,/node_modules/iconv-lite/.idea/vcs.xml,/node_modules/javascript-natural-sort/.idea/encodings.xml,/node_modules/javascript-natural-sort/.idea/javascript-natural-sort.iml,/node_modules/javascript-natural-sort/.idea/misc.xml,/node_modules/javascript-natural-sort/.idea/modules.xml,/node_modules/javascript-natural-sort/.idea/vcs.xml,/node_modules/javascript-natural-sort/.idea/workspace.xml,/node_modules/node-gyp/.github/ISSUE_TEMPLATE.md,/node_modules/node-gyp/.github/PULL_REQUEST_TEMPLATE.md,/node_modules/npm-normalize-package-bin/.github/settings.yml,/node_modules/promise-all-reject-late/.github/FUNDING.yml,/node_modules/qs/.github/FUNDING.yml,/node_modules/resolve/.github/FUNDING.yml,/node_modules/seedrandom/.nyc_output/f02e18a9-b1c7-4946-836e-c3dbfb9635a3.json,/node_modules/supports-preserve-symlinks-flag/.github/FUNDING.yml,/node_modules/unique-filename/.nyc_output/54942.json,/node_modules/unique-filename/.nyc_output/54944.json,/node_modules/validate-npm-package-name/.nyc_output/aa4ee25ac41a9c3c7ee37ce965e6d1ac.json,/node_modules/validate-npm-package-name/.nyc_output/bb918173e62b9517f55b630902d07ef4.json,/node_modules/wink-nlp/.nyc_output/727a0ee4-8cb0-457f-bc8b-9fa9f09a3d59.json,/node_modules/generic-names/.idea/codeStyles/codeStyleConfig.xml,/node_modules/generic-names/.idea/dictionaries/sheo13666q.xml,/node_modules/generic-names/.idea/inspectionProfiles/Project_Default.xml,/node_modules/iconv-lite/.idea/codeStyles/Project.xml,/node_modules/iconv-lite/.idea/codeStyles/codeStyleConfig.xml,/node_modules/iconv-lite/.idea/inspectionProfiles/Project_Default.xml,/node_modules/javascript-natural-sort/.idea/scopes/scope_settings.xml,/node_modules/node-gyp/.github/workflows/tests.yml,/node_modules/seedrandom/.nyc_output/processinfo/f02e18a9-b1c7-4946-836e-c3dbfb9635a3.json,/node_modules/seedrandom/.nyc_output/processinfo/index.json,/node_modules/wink-nlp/.nyc_output/processinfo/727a0ee4-8cb0-457f-bc8b-9fa9f09a3d59.json,/node_modules/wink-nlp/.nyc_output/processinfo/index.json,/node_modules/node-gyp/gyp/.github/workflows/Python_tests.yml,/node_modules/node-gyp/gyp/.github/workflows/node-gyp.yml,/node_modules/node-gyp/gyp/.github/workflows/nodejs-windows.yml,/node_modules/node-gyp/gyp/.github/workflows/release-please.yml
+[19:52:39] [snowpack] BUILD: /KeywordWorker.js
+[19:52:39] [snowpack] Scanning KeywordWorker.js for imports as JS
+[19:52:39] [snowpack] ADD: /cluster-utils.js
+[19:52:39] [snowpack] BUILD: /cluster-utils.js
+[19:52:39] [snowpack] Scanning cluster-utils.js for imports as JS
+[19:52:39] [snowpack] ADD: /_snowpack/pkg/tiny-tfidf.js
+[19:52:39] [snowpack] ADD: /_snowpack/pkg/ml-hclust.js
+[19:52:39] [snowpack] ADD: /_snowpack/pkg/mathjs.js
+[19:52:39] [snowpack] BUILD: /index.html
+[19:52:39] [snowpack] Scanning index.html for imports as HTML
+[19:52:39] [snowpack] ADD: /index.js
+[19:52:39] [snowpack] BUILD: /index.js
+[19:52:39] [snowpack] Scanning index.js for imports as JS
+[19:52:39] [snowpack] ADD: /cluster-utils.js
+[19:52:39] [snowpack] ADD: /_snowpack/pkg/vega-embed.js
+[19:52:39] [snowpack] ADD: /_snowpack/pkg/wink-nlp.js
+[19:52:39] [snowpack] ADD: /_snowpack/pkg/wink-eng-lite-web-model.js
+[19:52:39] [snowpack] ADD: /_snowpack/pkg/mathjs.js
+[19:52:39] [snowpack] ADD: /_snowpack/pkg/umap-js.js
+[19:52:39] [snowpack] ADD: /_snowpack/pkg/ml-hclust.js
+[19:52:39] [snowpack] BUILD: /log.log
+[19:52:39] [snowpack] BUILD: /log.logs
+[19:52:39] [snowpack] BUILD: /package.json
+[19:52:39] [snowpack] BUILD: /snowpack.config.js
+[19:52:39] [snowpack] Scanning snowpack.config.js for imports as JS
+[19:52:39] [snowpack] BUILD: /yarn-error.log
+[19:52:39] [snowpack] BUILD: /yarn.lock
+[19:52:39] [snowpack] BUILD: /static/brain_disease_rna.json
+[19:52:39] [snowpack] BUILD: /static/w2v.json
+[19:52:39] [snowpack] BUILD: /node_modules/aws4/.github/FUNDING.yml
+[19:52:39] [snowpack] BUILD: /node_modules/balanced-match/.github/FUNDING.yml
+[19:52:39] [snowpack] BUILD: /node_modules/fast-json-stable-stringify/.github/FUNDING.yml
+[19:52:39] [snowpack] BUILD: /node_modules/generic-names/.idea/encodings.xml
+[19:52:39] [snowpack] BUILD: /node_modules/generic-names/.idea/misc.xml
+[19:52:39] [snowpack] BUILD: /node_modules/generic-names/.idea/modules.xml
+[19:52:39] [snowpack] BUILD: /node_modules/generic-names/.idea/php.xml
+[19:52:39] [snowpack] BUILD: /node_modules/generic-names/.idea/runConfigurations.xml
+[19:52:39] [snowpack] BUILD: /node_modules/generic-names/.idea/vcs.xml
+[19:52:39] [snowpack] BUILD: /node_modules/iconv-lite/.github/dependabot.yml
+[19:52:39] [snowpack] BUILD: /node_modules/iconv-lite/.idea/iconv-lite.iml
+[19:52:39] [snowpack] BUILD: /node_modules/iconv-lite/.idea/modules.xml
+[19:52:39] [snowpack] BUILD: /node_modules/iconv-lite/.idea/vcs.xml
+[19:52:39] [snowpack] BUILD: /node_modules/javascript-natural-sort/.idea/encodings.xml
+[19:52:39] [snowpack] BUILD: /node_modules/javascript-natural-sort/.idea/javascript-natural-sort.iml
+[19:52:39] [snowpack] BUILD: /node_modules/javascript-natural-sort/.idea/misc.xml
+[19:52:39] [snowpack] BUILD: /node_modules/javascript-natural-sort/.idea/modules.xml
+[19:52:39] [snowpack] BUILD: /node_modules/javascript-natural-sort/.idea/vcs.xml
+[19:52:39] [snowpack] BUILD: /node_modules/javascript-natural-sort/.idea/workspace.xml
+[19:52:39] [snowpack] BUILD: /node_modules/node-gyp/.github/ISSUE_TEMPLATE.md
+[19:52:39] [snowpack] BUILD: /node_modules/node-gyp/.github/PULL_REQUEST_TEMPLATE.md
+[19:52:39] [snowpack] BUILD: /node_modules/npm-normalize-package-bin/.github/settings.yml
+[19:52:39] [snowpack] BUILD: /node_modules/promise-all-reject-late/.github/FUNDING.yml
+[19:52:39] [snowpack] BUILD: /node_modules/qs/.github/FUNDING.yml
+[19:52:39] [snowpack] BUILD: /node_modules/resolve/.github/FUNDING.yml
+[19:52:39] [snowpack] BUILD: /node_modules/seedrandom/.nyc_output/f02e18a9-b1c7-4946-836e-c3dbfb9635a3.json
+[19:52:39] [snowpack] BUILD: /node_modules/supports-preserve-symlinks-flag/.github/FUNDING.yml
+[19:52:39] [snowpack] BUILD: /node_modules/unique-filename/.nyc_output/54942.json
+[19:52:39] [snowpack] BUILD: /node_modules/unique-filename/.nyc_output/54944.json
+[19:52:39] [snowpack] BUILD: /node_modules/validate-npm-package-name/.nyc_output/aa4ee25ac41a9c3c7ee37ce965e6d1ac.json
+[19:52:40] [snowpack] BUILD: /node_modules/validate-npm-package-name/.nyc_output/bb918173e62b9517f55b630902d07ef4.json
+[19:52:40] [snowpack] BUILD: /node_modules/wink-nlp/.nyc_output/727a0ee4-8cb0-457f-bc8b-9fa9f09a3d59.json
+[19:52:40] [snowpack] BUILD: /node_modules/generic-names/.idea/codeStyles/codeStyleConfig.xml
+[19:52:40] [snowpack] BUILD: /node_modules/generic-names/.idea/dictionaries/sheo13666q.xml
+[19:52:40] [snowpack] BUILD: /node_modules/generic-names/.idea/inspectionProfiles/Project_Default.xml
+[19:52:40] [snowpack] BUILD: /node_modules/iconv-lite/.idea/codeStyles/Project.xml
+[19:52:40] [snowpack] BUILD: /node_modules/iconv-lite/.idea/codeStyles/codeStyleConfig.xml
+[19:52:40] [snowpack] BUILD: /node_modules/iconv-lite/.idea/inspectionProfiles/Project_Default.xml
+[19:52:40] [snowpack] BUILD: /node_modules/javascript-natural-sort/.idea/scopes/scope_settings.xml
+[19:52:40] [snowpack] BUILD: /node_modules/node-gyp/.github/workflows/tests.yml
+[19:52:40] [snowpack] BUILD: /node_modules/seedrandom/.nyc_output/processinfo/f02e18a9-b1c7-4946-836e-c3dbfb9635a3.json
+[19:52:40] [snowpack] BUILD: /node_modules/seedrandom/.nyc_output/processinfo/index.json
+[19:52:40] [snowpack] BUILD: /node_modules/wink-nlp/.nyc_output/processinfo/727a0ee4-8cb0-457f-bc8b-9fa9f09a3d59.json
+[19:52:40] [snowpack] BUILD: /node_modules/wink-nlp/.nyc_output/processinfo/index.json
+[19:52:40] [snowpack] BUILD: /node_modules/node-gyp/gyp/.github/workflows/Python_tests.yml
+[19:52:40] [snowpack] BUILD: /node_modules/node-gyp/gyp/.github/workflows/node-gyp.yml
+[19:52:40] [snowpack] BUILD: /node_modules/node-gyp/gyp/.github/workflows/nodejs-windows.yml
+[19:52:40] [snowpack] BUILD: /node_modules/node-gyp/gyp/.github/workflows/release-please.yml
+[19:52:40] [snowpack] BUILD: /_snowpack/pkg/tiny-tfidf.js
+[19:52:40] [snowpack] BUILD: /_snowpack/pkg/ml-hclust.js
+[19:52:40] [snowpack] BUILD: /_snowpack/pkg/mathjs.js
+[19:52:40] [snowpack] BUILD: /_snowpack/pkg/vega-embed.js
+[19:52:40] [snowpack] BUILD: /_snowpack/pkg/wink-nlp.js
+[19:52:40] [snowpack] BUILD: /_snowpack/pkg/wink-eng-lite-web-model.js
+[19:52:40] [snowpack] BUILD: /_snowpack/pkg/umap-js.js
+[19:52:40] [snowpack] ✔ write complete. [0.09s]
+[19:52:40] [snowpack] ▶ Build Complete!
+Done in 17.05s.

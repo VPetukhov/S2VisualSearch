@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "mathjs": "./mathjs.js",
+    "ml-hclust": "./ml-hclust.js",
+    "tiny-tfidf": "./tiny-tfidf.js",
+    "umap-js": "./umap-js.js",
+    "vega-embed": "./vega-embed.js",
+    "wink-eng-lite-web-model": "./wink-eng-lite-web-model.js",
+    "wink-nlp": "./wink-nlp.js"
+  }
+}
