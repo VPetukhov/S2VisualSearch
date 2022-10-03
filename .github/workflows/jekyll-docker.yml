@@ -17,4 +17,4 @@ jobs:
       run: |
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future && cp -r /srv/jekyll/_snowpack/ /srv/jekyll/_site"
+        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build -s docs --future && cp -r /srv/jekyll/docs/_snowpack/ /srv/jekyll/_site"
